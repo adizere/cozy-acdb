@@ -60,4 +60,16 @@ sub fetch_interval {
 	return @$list;
 }
 
+sub fetch_all {
+	my ( $self, $type ) = @_;
+
+	my $list = $self->run( 'view', "$type/_view/all")->data;
+	unless( $list && $list->[0] ){
+		print "No instance found for $type\n";
+		exit;
+	}
+
+	return @$list;
+}
+
 1;
