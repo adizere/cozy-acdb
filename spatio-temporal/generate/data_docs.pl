@@ -13,6 +13,8 @@ $c->testConnection or die "The server cannot be reached";
 
 print "Running version " . $c->serverInfo->{version} . "\n";
 
+# DB creation
+$c->req('PUT', 'cabd');
 
 foreach my $minute (0..1439) {
 	my $sum = 0;
